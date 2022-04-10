@@ -1,0 +1,26 @@
+webpackHotUpdate("main",{
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/component/auth/landing.css":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--5-oneOf-4-1!./node_modules/postcss-loader/src??postcss!./src/component/auth/landing.css ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(true);
+// Module
+___CSS_LOADER_EXPORT___.push([module.i, ".Landing {\r\n  width: 100%;\r\n  height: 100vh;\r\n  background-image: linear-gradient(\r\n    rgba(0, 0, 0, 0.75),\r\n    rgba(0, 0, 0, 0.85),\r\n    url(https://www.pngitem.com/pimgs/m/253-2531244_various-types-of-workers-hd-png-download.png)\r\n  );\r\n  background-size: cover;\r\n  background-position: center;\r\n}\r\n.heading{\r\n    width: 100%;\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translate(-50%);\r\n    text-align: center;\r\n    color: red;\r\n}\r\n", "",{"version":3,"sources":["webpack://src/component/auth/landing.css"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,aAAa;EACb;;;;GAIC;EACD,sBAAsB;EACtB,2BAA2B;AAC7B;AACA;IACI,WAAW;IACX,kBAAkB;IAClB,QAAQ;IACR,0BAA0B;IAC1B,kBAAkB;IAClB,UAAU;AACd","sourcesContent":[".Landing {\r\n  width: 100%;\r\n  height: 100vh;\r\n  background-image: linear-gradient(\r\n    rgba(0, 0, 0, 0.75),\r\n    rgba(0, 0, 0, 0.85),\r\n    url(https://www.pngitem.com/pimgs/m/253-2531244_various-types-of-workers-hd-png-download.png)\r\n  );\r\n  background-size: cover;\r\n  background-position: center;\r\n}\r\n.heading{\r\n    width: 100%;\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translate(-50%);\r\n    text-align: center;\r\n    color: red;\r\n}\r\n"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
+
+
+/***/ })
+
+})
+//# sourceMappingURL=main.0787045466ffe749a5ff.hot-update.js.map
