@@ -45,13 +45,13 @@ const Details = ({ detail }) => {
   // }
   return (
     <Fragment>
-  
+   <img className="image" src="http://www.adlittle.com.tr/sites/default/files/prism/urban_mobility_2.jpg"/>
       <h1 className="large text-primary">Address</h1>
       <p className="lead">
         <i className="fas fa-user"></i>Delivery Address
       </p>
       <form className="form" onSubmit={(e) => onSubmit(e)}>
-        <div className="form-group">
+        <div className="form-groups">
           <input
             type="Address"
             placeholder="Address"
@@ -71,36 +71,15 @@ const Details = ({ detail }) => {
             value={ServiceTypes}
             onChange={(e) => onChange(e)}
             required
+            
           />
+         
         </div>
 
         <input type="submit" className="btn btn-primary" value="Submit" />
-        {/* <button onClick={button} class="btn btn-primary">
-          Add Location
-        </button>
    
-      {state.map((data)=> {
-        return (
-          <ol class="list-group list-group-numbered">
-          <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-              <div class="fw-bold">{data}</div>
-            </div>
-            <span class="badge bg-primary rounded-pill">
-            <i class="far fa-check-circle" onClick={() => button()}>
-              
-            </i>
-            </span>
-           
-          </li>
-        </ol>
-        
-        )
-      })} */}
          </form>
-      {/* <p className="my-1">
-        Dont't have an account? <Link to="/Register">Sign Up</Link>
-      </p> */}
+      
     </Fragment>
   );
 };

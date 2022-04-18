@@ -8,12 +8,7 @@ module.exports = function (req, res, next) {
   try {
     console.log(token);
     let decoded = jwt.verify(token, config.get("jwtSecret"));
-<<<<<<< HEAD
-    console.log(decoded);
     req.users = decoded.users;
-=======
-    req.users = decoded.Login;
->>>>>>> 5af97a8aa4304747d2ea6108a17ca0a9aa89a034
     next();
   } catch (error) {
     console.log(error);

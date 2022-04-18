@@ -12,8 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json({ extended: false }));
 app.get("/", (req, res) => res.send("API RUNNING"));
 app.use("/api/users", require("./router/api/users"));
-app.use("/api/dealers", require("./router/api/dealers"));
+app.use("/api/dealers", require("./router/api/dealers"))
 app.use("/api/auth", require("./router/api/auth"));
 app.use("/api/service", require("./router/api/service"))
-let PORT =  1000 || process.env.PORT ;
+let PORT =  1000 || process.env.PORT;
 app.listen(PORT, () => console.log(`Server Started on port ${PORT}`));

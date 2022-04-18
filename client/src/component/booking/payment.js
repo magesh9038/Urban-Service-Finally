@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import "./payment.css";
+
 const payment = (props) => {
   return (
     <Fragment>

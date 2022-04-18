@@ -80,8 +80,8 @@ export let detail = (Address, ServiceTypes,loc) => async (dispatch) => {
   };
 
   try {
-    let res = await axios.post(
-      "http://localhost:1000/api/users/list",
+    let res = await axios.put(
+      "http://localhost:1000/api/users/workers",
       body,
       config
     );

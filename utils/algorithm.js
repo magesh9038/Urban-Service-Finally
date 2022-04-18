@@ -2,7 +2,7 @@ var kdt = require('kd.tree')
 let Dealers = require("../models/Dealers");
 
 const nearest_neighbors =  (user_coords) => new Promise(async(resolve, reject) => {
-  const coords = await Dealers.find({}, { loc: 1, _id: 0, Name: 1 });
+  const coords = await Dealers.find({}, { loc: 1, _id: 1, Name: 1 });
 
   let dealer_coords = coords.map(function (v) {
     return v.loc

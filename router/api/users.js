@@ -89,15 +89,12 @@ router.post("/login", async (req, res) => {
 
     if (Login.Password === req.body.Password) {
       let payload = {
-<<<<<<< HEAD
         users: {
           _id: Login._id,
           EmailId: Login.EmailId,
           MobileNo: Login.MobileNo
         },
-=======
         Login
->>>>>>> 5af97a8aa4304747d2ea6108a17ca0a9aa89a034
       }
       jwt.sign(
         payload,
@@ -187,26 +184,18 @@ router.get("/", auth, async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
-router.get("/me", async (req, res) => {
-  try {
-    let profiles = await User.find();
-    res.json(profiles);
-  } catch (error) {
-    console.log(error.message);
-    res.status(400).send("Server Error");
-  }
-});
+
 router.post("/list", auth, async (req, res) => {
   try {
     let user = await User.findOne({ _id: req.users._id });
-    console.log(req.users._id);
+    console.log(req.body);
     user.Worker.push({
       Address: req.body.Address,
       ServiceTypes: req.body.ServiceTypes,
       Status: req.body.Status,
       loc: {
-        lat: req.body.lat,
-        long: req.body.long
+        lat: req.body.loc.lat,
+        long: req.body.loc.long
       }
     });
     await user.save();
@@ -234,6 +223,15 @@ router.post("/post", auth, async (req, res) => {
 router.get("/profile", async (req, res) => {
   try {
     let profiles = await User.findOne({ MobileNo: 448944265, workerServiceTypes: "Acting Driver" });
+    res.json(profiles);
+  } catch (error) {
+    console.log(error.message);
+    res.status(400).send("Server Error");
+  }
+});
+router.get("/me", async (req, res) => {
+  try {
+    let profiles = await User.find();
     res.json(profiles);
   } catch (error) {
     console.log(error.message);

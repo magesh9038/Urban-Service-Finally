@@ -17,6 +17,8 @@ import { loadUser } from "./actions/user";
 import Dashboard from "./component/dashboard/Dashboard";
 import PrivateRoute from "./component/privateRoute/PrivateRoute";
 import store from "./store";
+import { createBrowserHistory } from 'history';
+const history = createBrowserHistory();
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
@@ -27,7 +29,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <Router>
+      <Router  history={history}>
         <Fragment>
           <Route exact path="/" component={Landing} />
           <section className="container">

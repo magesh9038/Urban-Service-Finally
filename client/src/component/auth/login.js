@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link,  } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../actions/user";
 import PropTypes from "prop-types";
-
-const Login = ({ login }) => {
+import "./login.css"
+const Login = ({ login, history }) => {
   const [state, setstate] = useState({
     EmailId: "",
     Password: "",
@@ -14,11 +14,12 @@ const Login = ({ login }) => {
     setstate({ ...state, [e.target.name]: e.target.value });
   const onSubmit = (e) => {
     e.preventDefault();
-
+    history.push('/display');
     login(EmailId, Password);
   };
   return (
     <Fragment>
+      <img className="image" src="https://zetaglobal.com/wp-content/uploads/2020/04/AdobeStock_237944494-scaled-1-960x640.jpeg"/>
       <h1 className="large text-primary">Sign In</h1>
       <p className="lead">
         <i className="fas fa-user"></i> SignIn account

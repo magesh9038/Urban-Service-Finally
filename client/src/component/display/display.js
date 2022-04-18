@@ -6,44 +6,44 @@ import { Link } from "react-router-dom";
 
 import "./display.css";
 const Display = (props) => {
-  const { getallservices } = props;
+  const { getallsfervices } = props;
   useEffect(() => {
     getallservices();
   }, [getallservices]);
   console.log(props);
   let Services = props.Profile.profile.map((data, index) => (
-    <Link to={`/Services/${data.services}`}>
+    <Link to={`/details/`}>
       <div class="service-workers">
         <h1>{data.services}</h1>
         <p>{data.About}</p>
-        <img src={data.Image} alt="jj" />
+        <img src={data.Image} alt="jj" height={150} width={200}/>
       </div>
     </Link>
   ));
   return (
     <Fragment>
       {console.log("nfjsnfjnjvgndfjn")}
-      <img className="image" src="https://images.pexels.com/photos/38293/workers-construction-site-hardhats-38293.jpeg?cs=srgb&dl=pexels-pixabay-38293.jpg&fm=jpg"/>
+      <img className="image" src="http://www.adlittle.com.tr/sites/default/files/prism/urban_mobility_2.jpg"/>
       <section className="display">
         <nav>
-          <a href="navbar-link">
-            {/*  */}
-            {/* <img
+          {/* <a href="navbar-link">
+            
+             <img
               src="https://scontent-bom1-2.xx.fbcdn.net/v/t1.6435-9/50933597_2260255480856103_8462898186757865472_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=goCM1oShOxUAX_Glntm&tn=q7oP6gqNiabZsvxe&_nc_ht=scontent-bom1-2.xx&oh=24631776f851e4c95b273bcc9c36986a&oe=616C63C6"
               alt=""
               width="100"
               height="104"
               class="d-inline-block align-text-top"
-            />{" "} */}
-          </a>
+            />{" "}
+          </a> */}
           <div className="nav-link" id="navlinks">
             <i class="fa fa-times" onClick="hidemenu()"></i>
             <ul>
               <li>
-                <a href="">HOME</a>
+               
               </li>
               <li>
-                <a href="">ABOUT</a>
+                <a href=""><Link to ="login"/></a>
               </li>
               <li>
                 <a href="">SERVICE WORKERS</a>
@@ -78,8 +78,8 @@ const Display = (props) => {
           installation, maintenance and repair services, and home beauty and
           wellness services
         </p>
-        <div className="service">
-          {/* <div class="service-workers">
+        {/* <div className="service">
+          <div class="service-workers">
             <h1>electrician</h1>
             <p>
               There are also many advantages to this career. In addition to
@@ -107,8 +107,8 @@ const Display = (props) => {
               and prefer to be freelancers. Popularly known as 'acting drivers
               ', they choose to drive based on the customer's demands
             </p>
-          </div> */}
-        </div>
+          </div>
+        </div> */}
       </section>
       <section class="campus">
         <h1>Global Services</h1>

@@ -27,11 +27,8 @@ router.post(
       if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
       }
-<<<<<<< HEAD
       let { Name, EmailId, MobileNo, Password, ServiceTypes, PermanentAddress, Address, AadharNo, Location, Password2 } = req.body;
-=======
-      let { Name, EmailId, MobileNo, Password, ServiceTypes, PermanentAddress, Address, AadharNo, Location } = req.body;
->>>>>>> 5af97a8aa4304747d2ea6108a17ca0a9aa89a034
+      // let { Name, EmailId, MobileNo, Password, ServiceTypes, PermanentAddress, Address, AadharNo, Location } = req.body;
 
       let user = await Dealer.findOne({ MobileNo, AadharNo });
 
@@ -41,11 +38,8 @@ router.post(
           .json({ errors: [{ msg: "phone no already exists" }] });
       } else {
         let users = new Dealer({
-<<<<<<< HEAD
           Name, EmailId, MobileNo, Password, ServiceTypes, PermanentAddress, Address, AadharNo, Location,Password2
-=======
-          Name, EmailId, MobileNo, Password, ServiceTypes, PermanentAddress, Address, AadharNo, Location
->>>>>>> 5af97a8aa4304747d2ea6108a17ca0a9aa89a034
+          // Name, EmailId, MobileNo, Password, ServiceTypes, PermanentAddress, Address, AadharNo, Location
         });
         await users.save();
 
@@ -125,6 +119,7 @@ router.put("/updateLocation", auth, async (req, res) => {
     res.status(500).json(error.message)
   }
 })
+
 router.get("/", async (req, res) => {
   try {
     let Dealers = await Dealer.findOne({ MobileNo: req.user.MobileNo })
@@ -133,5 +128,16 @@ router.get("/", async (req, res) => {
     console.log(error.message);
     res.status(500).json("Server Error")
   }
+  
+  router.get("/alldetails", async (req,res) => {
+    try {
+      let Dealers =  await Dealer.find();
+      res.json(Dealers)
+    } catch (error) {
+      console.log(error.message);
+      res.status(400).send("Server Error")
+    }
+  })
+  
 })
 module.exports = router;
