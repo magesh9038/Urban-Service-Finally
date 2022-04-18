@@ -111,7 +111,7 @@ router.put("/updateLocation", auth, async (req, res) => {
       lat: req.body.lat,
       long: req.body.long
     }
-    console.log(Dealers);
+ 
     await Dealers.save();
     res.json(Dealers)
   } catch (error) {
