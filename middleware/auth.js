@@ -6,7 +6,6 @@ module.exports = function (req, res, next) {
     return res.status(400).json({ msg: "No token has been authorized" });
   }
   try {
-    console.log(token);
     let decoded = jwt.verify(token, config.get("jwtSecret"));
     req.users = decoded.users;
     next();

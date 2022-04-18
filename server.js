@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json({ extended: false }));
 app.get("/", (req, res) => res.send("API RUNNING"));
 app.use("/api/users", require("./router/api/users"));
+app.use("/api/admin", require("./router/api/admin"));
 app.use("/api/dealers", require("./router/api/dealers"))
 app.use("/api/auth", require("./router/api/auth"));
 app.use("/api/service", require("./router/api/service"))
