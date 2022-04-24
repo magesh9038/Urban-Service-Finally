@@ -7,6 +7,8 @@ let bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
 let auth = require("../../middleware/auth");
 let Dealer = require("../../models/Dealers");
+let User = require("../../models/User");
+
 router.post(
   "/register",
   // [
@@ -38,7 +40,7 @@ router.post(
           .json({ errors: [{ msg: "phone no already exists" }] });
       } else {
         let users = new Dealer({
-          Name, EmailId, MobileNo, Password, ServiceTypes, PermanentAddress, Address, AadharNo, Location,Password2
+          Name, EmailId, MobileNo, Password, ServiceTypes, PermanentAddress, Address, AadharNo, Location, Password2
           // Name, EmailId, MobileNo, Password, ServiceTypes, PermanentAddress, Address, AadharNo, Location
         });
         await users.save();
@@ -111,7 +113,7 @@ router.put("/updateLocation", auth, async (req, res) => {
       lat: req.body.lat,
       long: req.body.long
     }
- 
+
     await Dealers.save();
     res.json(Dealers)
   } catch (error) {
@@ -120,24 +122,28 @@ router.put("/updateLocation", auth, async (req, res) => {
   }
 })
 
-router.get("/", async (req, res) => {
+router.get("/", auth, async (req, res) => {
   try {
-    let Dealers = await Dealer.findOne({ MobileNo: req.user.MobileNo })
+    let Dealers = await Dealer.findOne({ MobileNo: req.users.MobileNo })
     res.json(Dealers)
   } catch (error) {
     console.log(error.message);
     res.status(500).json("Server Error")
   }
-  
-  router.get("/alldetails", async (req,res) => {
-    try {
-      let Dealers =  await Dealer.find();
-      res.json(Dealers)
-    } catch (error) {
-      console.log(error.message);
-      res.status(400).send("Server Error")
-    }
-  })
-  
 })
+router.get("/alldetails", async (req, res) => {
+  try {
+    let Dealers = await Dealer.find();
+    res.json(Dealers)
+  } catch (error) {
+    console.log(error.message);
+    res.status(400).send("Server Error")
+  }
+})
+
+router.get('/getassigned_details', auth, async (req, res) => {
+  console.log(req.users.id);
+  const user = await User.find({ "Worker": { $elemMatch: { "dealer_details._id": req.users.id } } });
+  res.status(200).json(user);
+});
 module.exports = router;
