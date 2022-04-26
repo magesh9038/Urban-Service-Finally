@@ -8,6 +8,7 @@ const { check, validationResult } = require("express-validator");
 let auth = require("../../middleware/auth");
 let Dealer = require("../../models/Dealers");
 let User = require("../../models/User");
+var mongoose = require('mongoose');
 
 router.post(
   "/register",
@@ -143,7 +144,7 @@ router.get("/alldetails", async (req, res) => {
 
 router.get('/getassigned_details', auth, async (req, res) => {
   console.log(req.users.id);
-  const user = await User.find({ "Worker": { $elemMatch: { "dealer_details._id": req.users.id } } });
+  const user = await User.find({"Worker":{$elemMatch : {"dealer_details._id": mongoose.Types.ObjectId(req.users.id)}} }, {"Worker.$": 1, MobileNo: 1});
   res.status(200).json(user);
 });
 module.exports = router;
